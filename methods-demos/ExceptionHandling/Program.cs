@@ -6,13 +6,22 @@ namespace ExceptionHandling
     class Program
     {
         static void Main(string[] args)
+
         {
-            var text = File.ReadAllLines("../../../test1.txt");
-            
-            foreach(var line in text)
+            try
             {
-                Console.WriteLine(line);
+                var text = File.ReadAllLines("../../../test1.txt");
+                foreach (var line in text)
+                {
+                    Console.WriteLine(line);
+                }
             }
+            catch(FileNotFoundException ex)
+            {
+               // throw new FileNotFoundException();
+                Console.WriteLine(ex.Message);
+            }
+            
         }
     }
 }
